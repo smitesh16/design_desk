@@ -1,0 +1,64 @@
+<!-- partial -->
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Payment Report
+        </h3>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 class="card-title">From</h4>
+                    <input type="text" class="form-control datepicker" id="from" readonly >
+                 </div>
+                <div class="col-md-3">
+                    <h4 class="card-title">To</h4>
+                    <input type="text" class="form-control to_date" id="to" onclick="fromWiseTo();" readonly >
+                 </div>
+               
+                <div class="col-md-3">
+                    <h4 class="card-title">&#160;</h4>
+                    <button type="button" class="btn btn-outline-success" onclick="cash_filter();">Filter</button>
+                </div>
+                
+           
+                <div class="col-md-12 pt-4" style="display:none;" id="payment_details">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h4 class="card-title m-0">Payment Result</h4>
+                                <button class="btn btn-inverse-primary btn-rounded btn-icon" id="btnExport" onclick="fnExcelReport();" title="Download">  <i class="mdi mdi-arrow-down" aria-hidden="true"></i></button>
+                                <input type="hidden" value="Payment Result" id="tableName">
+                            </div>
+                          <div class="row">
+                            <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                              <table id="sortable-table-1" class="table">
+                                <thead>
+                                  <tr id="heading">
+                                    <th >#</th>
+                                    <th >Invoice No.</th>
+                                    <th >Voucher No.</th>
+                                    <th >Company</th>
+                                    <th >Payment Note</th>
+                                    <th >Amount</th>
+                                    <th >Date</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="filter_data">
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+           
+
+            <hr>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,75 @@
+#: locale=en
+
+## Tour
+
+### Title
+tour.name = Cheer Sagar
+
+## Skin
+
+### Tooltip
+IconButton_0B227FD2_0636_A28A_4195_3F568D74ACB6.toolTip = MUTE
+IconButton_0B2F7FDB_0636_A2B9_4167_1D3171244DFF.toolTip = FLOOR PLAN
+IconButton_0B2F9FDC_0636_A2BF_4195_6E7B3BB6A32C.toolTip = ABOUT US
+Image_146BEF69_0671_A386_4187_14B65BC51E4E.toolTip = CONTACT
+
+## Media
+
+### Title
+map_36EC8A49_3A0F_E89C_41C0_3A22A360B8B6.label = Cam_06
+panorama_31232770_3DF8_0FE0_41C7_6BFC33438E0A.label = Left
+panorama_313C6F5A_3DF8_1F20_41A0_1F58A6167A51.label = Inside
+panorama_3300108F_3DF8_0120_41AB_397D45F356BE.label = Center
+panorama_332BF0B4_3DF8_0160_41C1_0BC46D3CB737.label = Entry
+panorama_335B578F_3DF8_0F20_41B4_630382B276EF.label = Right
+video_13CDDA8B_33AE_188D_41C0_70B708F8B749.label = Cheer Sagar Japan videoVOLUME
+
+## Action
+
+### URL
+LinkBehaviour_1981E0E6_34AA_0886_41A7_C3F1DACCBBF5.source = https://www.cheersagar.com/
+LinkBehaviour_5E10C999_489D_A4F4_41BD_C0EA9C039F94.source = https://www.cheersagar.com/
+PopupWebFrameBehaviour_284355C2_344D_D585_41C8_FFA9881E70F3.url = https://japan.cheersagar.com/Product/Get/display8
+PopupWebFrameBehaviour_2867A2C7_344F_2F8B_41C7_C46C77D1EED1.url = https://japan.cheersagar.com/Product/Get/display10
+PopupWebFrameBehaviour_28E11569_3447_EA87_41CA_7293E5C3E511.url = https://japan.cheersagar.com/Product/Get/display8
+PopupWebFrameBehaviour_29060DCB_3445_559B_41B7_0856CFA65C4C.url = https://japan.cheersagar.com/Product/Get/display11
+PopupWebFrameBehaviour_29083083_347E_EB8B_41C1_BA1A4857A3C1.url = https://japan.cheersagar.com/Product/Get/display6
+PopupWebFrameBehaviour_2910E120_344F_2A85_41A9_70C960F5CA0C.url = https://japan.cheersagar.com/Product/Get/display1
+PopupWebFrameBehaviour_29121C6E_3443_7A9A_41C3_5731D7924343.url = https://japan.cheersagar.com/Product/Get/display5
+PopupWebFrameBehaviour_2926F98A_347D_7D9A_41C5_7BDFFC95ED49.url = https://japan.cheersagar.com/Product/Get/display5
+PopupWebFrameBehaviour_2934E84D_3442_DA9E_41BA_4F39376B19EC.url = https://japan.cheersagar.com/Product/Get/display4
+PopupWebFrameBehaviour_293676A3_344F_378A_41C3_0F694EAC9032.url = https://japan.cheersagar.com/Product/Get/display2
+PopupWebFrameBehaviour_2948BD57_3443_5A8B_41BF_6D1ABDA86AE5.url = https://japan.cheersagar.com/Product/Get/display11
+PopupWebFrameBehaviour_2950C173_347D_EA8B_419D_66811B0216D3.url = https://japan.cheersagar.com/Product/Get/display1
+PopupWebFrameBehaviour_295E7B3A_3446_DE85_41C6_E3FEF1849AAD.url = https://japan.cheersagar.com/Product/Get/display6
+PopupWebFrameBehaviour_297E5223_344D_2E8A_419B_E5FC4B1B180D.url = https://japan.cheersagar.com/Product/Get/display3
+PopupWebFrameBehaviour_298757E5_347F_558F_4158_A4D3A912AF28.url = https://japan.cheersagar.com/Product/Get/display7
+PopupWebFrameBehaviour_29A805B8_344F_3585_41A6_68034907EA50.url = https://japan.cheersagar.com/Product/Get/display9
+PopupWebFrameBehaviour_29B3E574_3445_2A8D_41C2_AA24EF6E811A.url = https://japan.cheersagar.com/Product/Get/display1
+PopupWebFrameBehaviour_29D3B134_3445_2A8D_41A1_F1C336426093.url = https://japan.cheersagar.com/Product/Get/display10
+PopupWebFrameBehaviour_29E9BDD0_3443_F585_41C8_FB6721FCE52F.url = https://japan.cheersagar.com/Product/Get/display2
+PopupWebFrameBehaviour_29E9C6E8_344D_3785_4192_24DBE3F94AE7.url = https://japan.cheersagar.com/Product/Get/display7
+PopupWebFrameBehaviour_29F021EC_3447_6D9D_4185_63D7084C7ABC.url = https://japan.cheersagar.com/Product/Get/display7
+PopupWebFrameBehaviour_2CED46D2_3445_3785_41C1_4D91C1D51C89.url = https://japan.cheersagar.com/Product/Get/display9
+PopupWebFrameBehaviour_2D933778_35CF_F685_419F_A80EE4A9A2C8.url = https://japan.cheersagar.com/Product/Get/display8
+PopupWebFrameBehaviour_2E89F899_3443_3B86_41C0_6F66C5DAC284.url = https://japan.cheersagar.com/Product/Get/display3
+PopupWebFrameBehaviour_2E91903D_347D_2AFF_41B4_5AD12210A54F.url = https://japan.cheersagar.com/Product/Get/display4
+PopupWebFrameBehaviour_2E922B5F_3443_5EBA_41BD_4591EBF485D1.url = https://japan.cheersagar.com/Product/Get/display6
+PopupWebFrameBehaviour_2E9ACAF2_3445_5F85_41BE_5CE0F994D5E1.url = https://japan.cheersagar.com/Product/Get/display5
+PopupWebFrameBehaviour_2E9E6587_347D_358B_4165_4C3E2515A9EF.url = https://japan.cheersagar.com/Product/Get/display11
+PopupWebFrameBehaviour_2E9F4AB6_3443_5F8D_41BA_8C88099936CA.url = https://japan.cheersagar.com/Product/Get/display3
+PopupWebFrameBehaviour_2EA6F472_3447_2A85_419B_2C7D26C24D9D.url = https://japan.cheersagar.com/Product/Get/display9
+PopupWebFrameBehaviour_2EEECBA9_3445_DD87_41B6_F86BB2CD8A96.url = https://japan.cheersagar.com/Product/Get/display10
+PopupWebFrameBehaviour_2EF17AD0_3445_3F85_41C1_1CA110F3E413.url = https://japan.cheersagar.com/Product/Get/display4
+PopupWebFrameBehaviour_2EF492B9_347D_2F87_41C6_9B6CE05FD7AC.url = https://japan.cheersagar.com/Product/Get/display2
+PopupWebFrameBehaviour_7C41FEB8_63DF_EE0E_41D1_22020A4432EC.url = https://japan.cheersagar.com/Product/Get/display5
+PopupWebFrameBehaviour_7D1C6382_63AC_F602_41D4_2E2D89A1F51A.url = https://japan.cheersagar.com/Product/Get/display6
+PopupWebFrameBehaviour_7E480CB7_63EC_5202_41C4_F4614F875B1C.url = https://japan.cheersagar.com/Product/Get/display7
+PopupWebFrameBehaviour_7E490C9E_63EC_5202_41D7_9F6A0B52D38B.url = https://japan.cheersagar.com/Product/Get/display2
+PopupWebFrameBehaviour_7E499CA6_63EC_5202_41B5_F65841F456EF.url = https://japan.cheersagar.com/Product/Get/display3
+PopupWebFrameBehaviour_7E4B4C96_63EC_5202_41C9_7887539A81A7.url = https://japan.cheersagar.com/Product/Get/display1
+PopupWebFrameBehaviour_7E4E0CAE_63EC_5202_4186_4EEB8B88A7DD.url = https://japan.cheersagar.com/Product/Get/display4
+PopupWebFrameBehaviour_7E4E5CC4_63EC_5206_41C0_ADFE0C81B2C3.url = https://japan.cheersagar.com/Product/Get/display11
+PopupWebFrameBehaviour_7E4E7CBA_63EC_5202_41D6_7D5B364DE450.url = https://japan.cheersagar.com/Product/Get/display9
+PopupWebFrameBehaviour_7E4EECBD_63EC_5206_4162_84885E7459E1.url = https://japan.cheersagar.com/Product/Get/display8
+PopupWebFrameBehaviour_7E4F6CC0_63EC_527E_41CC_DA89AFFE1B4A.url = https://japan.cheersagar.com/Product/Get/display10

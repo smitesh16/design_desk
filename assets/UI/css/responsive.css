@@ -1,0 +1,61 @@
+@media (max-width:1200px) {
+	
+}
+@media (max-width:1023px) {
+	
+}
+@media (max-width:900px) {
+
+}
+@media (max-width:768px) {
+	section.bgView {
+	    padding: 0px 15px;
+	}
+	.container-fluid.p-0 {
+	    padding: 15px !important;
+	}
+	.bCum ul {
+	    padding: 0px 10px 25px;
+	}
+	.navArrow a {
+	    top: 37.5%;
+	}
+	.quickForm {
+	    margin-top: 20px;
+	}
+	.cartView {
+	   width: 100%;
+	   padding: 35px 15px;
+	}
+	header .col-12.text-right {
+	    text-align: center !important;
+	}
+	.productHolder {
+	    padding: 60px 0px 0px;
+	}
+	.col-md-5.py-5.mt-4 {
+	    padding-top: 0px !important;
+	}
+}
+
+@media (max-width:568px) {
+	.authWrap {
+	    background: #fff;
+	    margin-top: 0;
+	    padding: 5px 0px;
+	    border-radius: 10px;
+	}
+	.authContainer {
+	    padding: 15px 15px;
+	}
+	.authMain .back {
+	    position: absolute;
+	    left: -15px;
+	    top: -40px;
+	}
+}	
+
+@media (max-width:414px) {
+
+
+}
