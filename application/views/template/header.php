@@ -10,7 +10,7 @@
 	<meta name=description content=admin />
 	<meta name=robots content=noodp />
 	<meta name=keywords content=admin>
-	<title>Virtual Shop Admin</title>
+	<title>Micro Cotton Admin</title>
 	<style>
 		.mainLoader {
 			position: fixed;

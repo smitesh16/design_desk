@@ -107,7 +107,9 @@
       <div class="col-md-5 py-5 mt-4">
 
               <h3><?= $p['product_name']; ?></h3>
-
+              <div class="pDes">
+                <p><small><?= $p['parmalink']; ?></small></p>
+              </div>
               <div class="pDes">
                 <?= $p['description']; ?>
               </div>
