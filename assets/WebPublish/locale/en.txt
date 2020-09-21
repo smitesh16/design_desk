@@ -1,0 +1,44 @@
+#: locale=en
+
+## Tour
+
+### Title
+tour.name = Micro Cotton Showroom
+
+## Media
+
+### Title
+map_8584D86D_8B6F_AF47_41D0_C6077C6B4171.label = Top
+panorama_85344D29_88C8_C4CF_41E0_542C035123EA.label = 03 Pano
+panorama_853AC817_88C8_4CC3_41DC_C15019A27DCD.label = 02 Pano
+panorama_86C69FAF_88C9_C3C4_41E0_56AFF04FEAC1.label = 06 Pano
+panorama_86CE91B5_88C8_5FC7_41B1_5C3FEA775C7A.label = 05 Pano
+panorama_86CFD924_88C8_4CC5_41D4_909B242C5BA9.label = 04 Pano
+panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4.label = 01 Pano
+video_CE8B34F4_8F9C_6745_41D9_E551193C5829.label = MC corporate B2B  Low Size FINAL
+video_CFC964AD_8F9C_67C7_41E0_666D905FDFD2.label = MC corporate B2B  Low Size_MUTE FINAL
+video_DBC357C8_8F95_E14C_41C7_F42692A5D6EC.label = MC Virtual Host FINAL Low Quality
+
+## Action
+
+### URL
+LinkBehaviour_0AEA6763_8949_C343_41DC_A54CE3B18F14.source = http://wppredirect.tk/go/?p=917667244400&m=Hello,%20I'm%20interested%20in%20the%20Micro%20Cotton%20collection%20and%20would%20like%20to%20schedule%20a%20meeting.
+LinkBehaviour_6D767E6E_754B_071A_41D8_7E337DCE41A8.source = http://wppredirect.tk/go/?p=917667244400&m=Hello,%20I'm%20interested%20in%20the%20Micro%20Cotton%20collection%20and%20would%20like%20to%20schedule%20a%20meeting.
+PopupWebFrameBehaviour_911F70D0_B045_B8DD_41E5_41E4E3C95DF5.url = rdsenterprises.in/Product/GetAll/18
+PopupWebFrameBehaviour_9135F463_B04A_5FC3_41D6_C4B6C2924561.url = rdsenterprises.in/Product/GetAll/13
+PopupWebFrameBehaviour_91C6A405_B04D_BF46_41DD_D6738DE25765.url = rdsenterprises.in/Product/GetAll/8
+PopupWebFrameBehaviour_947E8D6D_B046_49C6_41E0_61479E9B3B13.url = rdsenterprises.in/Product/GetAll/17
+PopupWebFrameBehaviour_94873869_B05A_B7CF_41D2_CF4755BD58E8.url = rdsenterprises.in/Product/GetAll/6
+PopupWebFrameBehaviour_94A7DBE5_B04A_48C7_41D0_9166CF48E116.url = rdsenterprises.in/Product/GetAll/16
+PopupWebFrameBehaviour_97A4C0A9_B046_B74F_41C2_C8905686A5C0.url = rdsenterprises.in/Product/GetAll/19
+PopupWebFrameBehaviour_A9239778_B04A_79CE_4193_53E8319116B3.url = rdsenterprises.in/Product/GetAll/3
+PopupWebFrameBehaviour_A996F911_B046_495F_41C1_FC04F849D3EA.url = rdsenterprises.in/Product/GetAll/5
+PopupWebFrameBehaviour_AB877B65_B04E_49C6_41DC_D6861364EA9E.url = rdsenterprises.in/Product/GetAll/2
+PopupWebFrameBehaviour_ABCD95E5_B04A_58C6_41D4_025B05D43964.url = rdsenterprises.in/Product/GetAll/4
+PopupWebFrameBehaviour_ABE0694D_B046_C9C7_41E0_BE234744998B.url = rdsenterprises.in/Product/GetAll/10
+PopupWebFrameBehaviour_AEAB1A54_B04A_CBC6_41DC_3CFB92433848.url = rdsenterprises.in/Product/GetAll/9
+PopupWebFrameBehaviour_AF1A9E6E_B045_CBC2_41BC_8056F85F1CEA.url = rdsenterprises.in/Product/GetAll/14
+PopupWebFrameBehaviour_B5E32CF8_AFCE_48CE_41CB_3CF1E93E1D0A.url = rdsenterprises.in/Product/GetAll/15
+PopupWebFrameBehaviour_B8AAF350_AFCD_F9DD_41E5_6F7F9B5978E6.url = rdsenterprises.in/Product/GetAll/11
+PopupWebFrameBehaviour_BAEB597F_AFCA_49C3_41E1_B73F559A2463.url = rdsenterprises.in/Product/GetAll/7
+PopupWebFrameBehaviour_BDC4FF03_AFC5_C942_4183_95E7EBC695C3.url = rdsenterprises.in/Product/GetAll/1
