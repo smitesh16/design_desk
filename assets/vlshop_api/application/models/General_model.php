@@ -180,6 +180,18 @@ class General_model extends CI_Model {
             }
         }
         
+        if(isset($all_data['customjoin']) && $all_data['customjoin']!='')
+        {
+            $join_table_attribute_arr = explode(',',$all_data['customjoin']);
+            for($i=0;$i<count($join_table_attribute_arr);$i++)
+            {
+                $new_join_table_attribute = explode(":",$join_table_attribute_arr[$i]);
+                $join_table_name = $new_join_table_attribute[0];
+                $join_table_attribute = $new_join_table_attribute[1];
+
+                $this->db->join($table_prefix.$join_table_name.$table_suffix, $table_prefix.$join_table_name.$table_suffix.'.'.$join_table_name.'_'.$join_table_attribute.'='.$table_prefix.$table_attribute.$table_suffix.'.'.$join_table_attribute, 'left');
+            }
+        }
         
         if(isset($all_data['order_by']) && $all_data['order_by']!='')
         {

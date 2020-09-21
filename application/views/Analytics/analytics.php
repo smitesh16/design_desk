@@ -38,6 +38,7 @@
                                       <th data-field="id">Analytics Id</th>
                                       <th>IP Address</th>
                                       <th>Location</th>
+                                      <th>Register User ?</th>
                                       <th>Date</th>
                                   </tr>
                               </thead>
@@ -51,7 +52,8 @@
                                       <td><?php echo $list['analytics_id'];?> </td>
                                       <td><?php echo $list['ip_address'];?></td>
                                       <td><?php echo $list['location'];?></td>
-                                      <td><?php echo date("d-m-Y", strtotime($list['created_at']));?></td>
+                                      <td><?php if($list['client_ip_address'] === null || $list['client_ip_address'] == '') echo "-"; else echo $list['user_email']; ?></td>
+                                      <td><?php echo date("d-m-Y", strtotime($list['entry_date']));?></td>
 
                                   </tr>
                                   <?php } } ?>
@@ -61,164 +63,6 @@
                       </div>
                   </div>
               </div>
-          </div>
-      </div>
-  </div>
-
-  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="ModalLabel">Customer Add</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <form action="<?php echo base_url();?>Customer/Add" method='POST'>
-                  <div class="modal-body">
-                      <div class="row">
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">User Name:</label>
-                                  <input maxlength="100" type="text" class="form-control company" name="user_name"
-                                      required>
-                              </div>
-                          </div>
-                          
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">User Email:</label>
-                                  <input maxlength="100" type="text" class="form-control onlyemail" name="user_email" id="emailofuser"
-                                      required>
-                                      <span id="emailofuserError" style="color: red"></span>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">Contact Number:</label>
-                                  <input type="text" class="form-control onlynum" name="contact_number" maxlength=10 
-                                      required>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="message-text" class="col-form-label">User Address:</label>
-                                  <textarea maxlength="300" class="form-control" name="user_address"
-                                      required></textarea>
-                              </div>
-                          </div>
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">PAN Number:</label>
-                                  <input type="text" class="form-control onlynumchar" name="pan_number" maxlength=10
-                                      required>
-                              </div>
-                          </div>
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">GSTIN Number:</label>
-                                  <input type="text" class="form-control onlynumchar" name="gstin_number" maxlength=15
-                                      required>
-                              </div>
-                          </div>
-                          <div class="col-md-2">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">Change Status:</label>
-                                  <select class="form-control" name="active_status">
-                                    <option value="0">Block</option>
-                                    <option value="1">Active</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <input type="hidden" name=type value='customer'>
-                      </div>
-
-                  </div>
-                  <div class="modal-footer">
-                      <button type="submit" class="btn btn-outline-success">SUBMIT</button>
-                      <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div>
-
-
-
-
-  <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title view_name" id="ModalLabel">Customer Edit</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <form action="<?php echo base_url();?>Customer/Edit" method='POST'>
-                  <div class="modal-body">
-                      <div class="row">
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">User Name:</label>
-                                  <input maxlength="100" type="text" class="form-control company" name="user_name" id="user_name"
-                                      required>
-                              </div>
-                          </div>
-                          
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">User Email:</label>
-                                  <input maxlength="100" type="text" class="form-control onlyemail" name="user_email" id="user_email"
-                                      required>
-                                      <span id="user_emailError" style="color: red"></span>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">Contact Number:</label>
-                                  <input type="text" class="form-control onlynum" name="contact_number" id="contact_number" maxlength=10 
-                                      required>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="message-text" class="col-form-label">User Address:</label>
-                                  <textarea maxlength="300" class="form-control" name="user_address" id="user_address"
-                                      required></textarea>
-                              </div>
-                          </div>
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">PAN Number:</label>
-                                  <input type="text" class="form-control onlynumchar" name="pan_number" id="pan_number" maxlength=10
-                                      required>
-                              </div>
-                          </div>
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">GSTIN Number:</label>
-                                  <input type="text" class="form-control onlynumchar" name="gstin_number" id="gstin_number" maxlength=15
-                                      required>
-                              </div>
-                          </div>
-                          <div class="col-md-2">
-                              <div class="form-group">
-                                  <label for="recipient-name" class="col-form-label">Change Status:</label>
-                                  <select class="form-control" name="active_status" id="active_status">
-                                    <option value="0">Block</option>
-                                    <option value="1">Active</option>
-                                  </select>
-                              </div>
-                          </div>
-                      <input type=hidden id="client_id" name="client_id">
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="submit" class="btn btn-outline-success" id="edit_button">SUBMIT</button>
-                      <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                  </div>
-              </form>
           </div>
       </div>
   </div>
