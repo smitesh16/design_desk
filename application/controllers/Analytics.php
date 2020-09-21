@@ -15,7 +15,7 @@ class Analytics extends CI_Controller {
 		
 		$api_url = $this->config->item('api_url');
         $get_api_url = $api_url."General/Get";
-        $objarray = array("analytics"=>array(),"order_by"=>array("analytics_id"=>"desc"));
+        $objarray = array("analytics"=>array(),"customjoin"=>"client:ip_address","order_by"=>array("analytics_id"=>"desc"));
         $response = $this->General_model->general_function($objarray,$get_api_url);
       
         $data['analytics_data'] =  json_decode($response,true);
@@ -29,12 +29,13 @@ class Analytics extends CI_Controller {
 	{
 		$api_url = $this->config->item('api_url');
         $get_api_url = $api_url."General/Get";
-        $objarray = array("analytics"=>array("entry_date"=>date('Y-m-d')));
+        $objarray = array("analytics"=>array("entry_date"=>date('Y-m-d')),"customjoin"=>"client:ip_address");
         $response = $this->General_model->general_function($objarray,$get_api_url);
         $data['analytics_data'] =  json_decode($response,true);
         if($data['analytics_data']['stat'] == 200){
 	        $subject = "Analytics Report on ".date('Y-m-d');
 	       	$to = 'geetha.raj@microcotton.com';
+	       	// $to = 'rahul.mitra@infimonk.com';
 	       	$viewName = "analyticsTemplate";
 	       	$mailData = $data['analytics_data']['all_list'];
 	       	$res = sendMail($subject,$to,$viewName,$mailData);
@@ -52,7 +53,7 @@ class Analytics extends CI_Controller {
         // pr($data);
         if($data['abandon_data']['stat'] == 200){
         	for($i = 0; $i<count($data['abandon_data']['data']); $i++){
-        		$subject = "Complete Enquiry – Microcotton® Virtual showroom";
+        		$subject = "Complete Enquiry: Cheer Sagar Virtual Showroom ";
 		       	$to = $data['abandon_data']['data'][$i]['user_email'];
 		       	$viewName = "abandonTemplate";
 		       	$mailData = $data['abandon_data']['data'][$i];
