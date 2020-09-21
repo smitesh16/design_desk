@@ -59,10 +59,13 @@ class Signin extends CI_Controller {
 	{
 	   $api_url = $this->config->item('api_url');
        $api_url = $api_url."General/Add";
+       $ip = $this->getVisIPAddr();
+		$iparr = explode(',', $ip);
        $obj = $this->input->post();
        $newObj = $obj;
        unset($obj['accesscode']);
        $obj['password'] = base64_encode($obj['password']);
+       $obj['client_ip_address'] = $iparr[0];
        $objarray = array("client"=>$obj);
        $response = $this->General_model->general_function($objarray,$api_url);
        $res = json_decode($response,true);
@@ -176,4 +179,17 @@ class Signin extends CI_Controller {
 	    return substr(str_shuffle($str_result),  
 	                       0, $length_of_string); 
 	} 
+
+	public function getVisIpAddr() { 
+      
+	    if (!empty($_SERVER['HTTP_CLIENT_IP'])) { 
+	        return $_SERVER['HTTP_CLIENT_IP']; 
+	    } 
+	    else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) { 
+	        return $_SERVER['HTTP_X_FORWARDED_FOR']; 
+	    } 
+	    else { 
+	        return $_SERVER['REMOTE_ADDR']; 
+	    } 
+	}
 }
