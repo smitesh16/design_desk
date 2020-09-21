@@ -23,9 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/micro_cotton/';
-$config['api_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/micro_cotton/assets/vlshop_api/';
-$config['file_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/micro_cotton/assets/vlshop_file/';
+$config['base_url'] = 'https://'.$_SERVER['SERVER_NAME'].'/micro_cotton/';
+$config['api_url'] = 'https://'.$_SERVER['SERVER_NAME'].'/micro_cotton/assets/vlshop_api/';
+$config['file_url'] = 'https://'.$_SERVER['SERVER_NAME'].'/micro_cotton/assets/vlshop_file/';
 $config['upload_path'] = './assets/vlshop_file/';
 $config['api_key'] = 'c2FudGFudV9wYXVsX2luZmltb25r';
 
