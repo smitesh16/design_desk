@@ -39,12 +39,14 @@ class Enquiry extends CI_Controller {
 			$response1 = $this->General_model->general_function($objarray,$api_url);
 		}
 		$pdetails = Productdata($obj['product_id']);
-		$subject = "Enquiry received: Cheer Sagar Virtual Showroom";
+		$pdetails['all_list'][0]['message'] = $obj['message'];
+		$subject = "Enquiry received – Microcotton Virtual showroom";
        	$to = Userdata('user_email');
        	$viewName = "checkoutTemplate";
-       	$mailData = array("Name"=>Userdata('user_name'),"pdetails"=>$pdetails['all_list']);
+       	$mailData = array("Name"=>Userdata('user_name'),"user_name"=>"","user_email"=>"","company"=>"","user_address"=>"","moq"=>"","pdetails"=>$pdetails['all_list']);
        	sendMail($subject,$to,$viewName,$mailData);
-       	$to = "infimonktechteam@gmail.com";
+       	$mailData = array("Name"=>"Team Microcotton","user_name"=>Userdata('user_name'),"user_email"=>Userdata('user_email'),"company"=>Userdata('company'),"user_address"=>Userdata('user_address'),"moq"=>$obj['moq'],"pdetails"=>$pdetails['all_list']);
+       	$to = "geetha.raj@microcotton.com";
        	sendMail($subject,$to,$viewName,$mailData);
 		echo $response;
 	}
@@ -67,6 +69,7 @@ class Enquiry extends CI_Controller {
 				for($i = 0; $i<count($data['cartlist']['all_list']); $i++){
 					$pdetails[] = $data['cartlist']['all_list'][$i];
 					$comment = $obj['cartComment'.$data['cartlist']['all_list'][$i]['product_id']];
+					$pdetails[$i]['message'] = $comment;
 					$objarray = array("enquiry_details"=>array("enquiry_id"=>$enquiry_id,"product_id"=>$data['cartlist']['all_list'][$i]['product_id'],"product_quantity"=>1,"comment"=>$comment));
 					$response1 = $this->General_model->general_function($objarray,$api_url);
 				}
@@ -74,12 +77,13 @@ class Enquiry extends CI_Controller {
    				$response = $this->General_model->general_function($objarray,$remove_url);
 			}
 
-			$subject = "Enquiry received: Cheer Sagar Virtual Showroom";
+			$subject = "Enquiry received – Microcotton Virtual showroom";
 	       	$to = Userdata('user_email');
 	       	$viewName = "checkoutTemplate";
-	       	$mailData = array("Name"=>Userdata('user_name'),"pdetails"=>$pdetails);
+	       	$mailData = array("Name"=>Userdata('user_name'),"user_name"=>"","user_email"=>"","company"=>"","user_address"=>"","moq"=>"","pdetails"=>$pdetails);
 	       	sendMail($subject,$to,$viewName,$mailData);
-	       	$to = "infimonktechteam@gmail.com";
+	       	$mailData = array("Name"=>"Team Microcotton","user_name"=>Userdata('user_name'),"user_email"=>Userdata('user_email'),"company"=>Userdata('company'),"user_address"=>Userdata('user_address'),"moq"=>"","pdetails"=>$pdetails);
+	       	$to = "geetha.raj@microcotton.com";
 	       	sendMail($subject,$to,$viewName,$mailData);
 		}else{
 			$response = json_encode(array("stat"=>400,"msg"=>"No item in your cart"));
