@@ -57,7 +57,6 @@ September - 2020  </h1>
 				          </div>
 				          <div class="form-group" style="display: flex;">
 				            <select name="countryCode" id="" class="form-control" style="width: 50%;">
-				              <option data-countryCode="JP" value="81" Selected>Japan (+81)</option>
 				              <option data-countryCode="IN" value="91">India (+91)</option>
 				              <optgroup label="Other countries">
 				                <option data-countryCode="DZ" value="213">Algeria (+213)</option>
@@ -153,7 +152,7 @@ September - 2020  </h1>
 				                <option data-countryCode="IL" value="972">Israel (+972)</option>
 				                <option data-countryCode="IT" value="39">Italy (+39)</option>
 				                <option data-countryCode="JM" value="1876">Jamaica (+1876)</option>
-				                <!-- <option data-countryCode="JP" value="81">Japan (+81)</option> -->
+				                <option data-countryCode="JP" value="81">Japan (+81)</option>
 				                <option data-countryCode="JO" value="962">Jordan (+962)</option>
 				                <option data-countryCode="KZ" value="7">Kazakhstan (+7)</option>
 				                <option data-countryCode="KE" value="254">Kenya (+254)</option>
@@ -283,22 +282,7 @@ September - 2020  </h1>
 				            <input type="text" id="company" class="form-control" placeholder="Company Name">
 				          </div>
 				          <div class="form-group">
-				            <select class="form-control" id="user_address">
-				              <option value="">Territory of Operations</option>
-				              <option value="Japan">Japan</option>
-				              <option value="South Korea">South Korea</option>
-				              <option value="China/Hong Kong">China/Hong Kong</option>
-				              <option value="Asia Pacific">Asia Pacific</option>
-				              <option value="Middle East and Africa">Middle East and Africa</option>
-				              <option value="Europe">Europe</option>
-				              <option value="Latin America">Latin America</option>
-				              <option value="USA/Canada">USA/Canada</option>
-				              <option value="Others">Others</option>
-				              
-				              
-				              
-				            </select>
-				            <!-- <input type="text" id="user_address" class="form-control" placeholder="Territory of Operations "> -->
+				            <input type="text" id="user_address" class="form-control" placeholder="Full Address">
 				          </div>
 				          <div class="form-group">
 				            <input type="password" id="password" class="form-control" placeholder="Password">

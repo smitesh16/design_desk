@@ -3,7 +3,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Cheer Sagar</title>
+	<title>Micro Cotton</title>
 	<link href='https://fonts.googleapis.com/css?family=Lato:300,400|Montserrat:700' rel='stylesheet' type='text/css'>
 	<style>
 		@import url(//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css);
@@ -20,10 +20,10 @@
 
 	<div class="main-content">
 		<i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-		<p class="main-content__body" data-lead-id="main-content-body"><b>Your enquiry has been received successfully.</b><br> Thank you for your enquiry. It has been forwarded to the relevant department and we will get back to you shortly.<br>Meanwhile, email us on <a href="mailto:enquiry@cheersagar.com">enquiry@cheersagar.com</a> for any questions.</p>
+		<p class="main-content__body" data-lead-id="main-content-body"><b>Your enquiry has been received successfully.</b><br> Thank you for your enquiry. It has been forwarded to the relevant department and we will get back to you shortly.<br>Meanwhile, email us on <a href="mailto:enquiry@microcotton.com">enquiry@microcotton.com</a> for any questions.</p>
 	</div>
 	<div class="main-content">
-		<p>Go back to virtual showroom : <a href="<?php echo base_url();?>Home">japan.cheersagar.com</a></p>
+		<p>Go back to virtual showroom : <a href="<?php echo base_url();?>Home">3dshowcase.microcotton.com</a></p>
 	</div>
 	<footer class="site-footer" id="footer">
 		<p class="site-footer__fineprint" id="fineprint">Copyright ©2020 | All Rights Reserved</p>

@@ -30,6 +30,8 @@ class Product extends CI_Controller {
         
         $objarray = array("product"=>array());
         $data['product'] = json_decode($this->General_model->general_function($objarray,$get_api_url),true);
+        $objarray = array("category"=>array());
+        $data['category'] = json_decode($this->General_model->general_function($objarray,$get_api_url),true);
         
 		$this->load->view('template/header',$data);
 		$this->load->view('Product/product');
@@ -91,7 +93,7 @@ class Product extends CI_Controller {
         $api_url = $this->config->item('api_url');
         $get_api_url = $api_url."General/Get";
         
-        $objarray = array("product"=>array('parmalink'=>$param));
+        $objarray = array("product"=>array('product_id'=>$param));
         $data['product'] = json_decode($this->General_model->general_function($objarray,$get_api_url),true);
         if($data['product']['stat'] != 200){
              header('Location: '.base_url('ErrorPage'));

@@ -3,7 +3,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Cheer Sagar</title>
+	<title>Micro Cotton</title>
 	<link href='https://fonts.googleapis.com/css?family=Lato:300,400|Montserrat:700' rel='stylesheet' type='text/css'>
 	<style>
 		@import url(//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css);
@@ -23,7 +23,7 @@
 		<p class="main-content__body" data-lead-id="main-content-body"><b>You are successfully logged out.</b></p>
 	</div>
 	<div class="main-content">
-		<p>Go back to virtual showroom : <a href="<?php echo base_url();?>">japan.cheersagar.com</a></p>
+		<p>Go back to virtual showroom : <a href="<?php echo base_url();?>">3dshowcase.microcotton.com</a></p>
 	</div>
 	<footer class="site-footer" id="footer">
 		<p class="site-footer__fineprint" id="fineprint">Copyright ©2020 | All Rights Reserved</p>

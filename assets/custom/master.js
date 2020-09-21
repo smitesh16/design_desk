@@ -893,3 +893,7 @@ function profit_loss_filter(){
 }
 
 
+$('.categorySelect').change(function(){
+  var category_id =  $(this).find(':selected').attr('data-val');
+  $(".category_id").val(category_id);
+});

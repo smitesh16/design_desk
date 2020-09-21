@@ -46,7 +46,7 @@
               <img src="<?php if($product['all_list'][$i]['category_image'] != '') echo $this->config->item('file_url').$product['all_list'][$i]['category_image']; else echo $this->config->item('file_url')."default.jpg" ?>" class="img-fluid">
               <div class="pListDes">
                 <p><?=$product['all_list'][$i]['product_name']; ?></p>
-                <a href="<?php echo base_url();?>Product/Get/<?=$product['all_list'][$i]['parmalink']; ?>">Learn more <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                <a href="<?php echo base_url();?>Product/Get/<?=$product['all_list'][$i]['product_id']; ?>">Learn more <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
               </div>
             </div>
           </div>

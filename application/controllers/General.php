@@ -63,43 +63,63 @@ class General extends CI_Controller {
               // $picture = '';
           }
 
-          $other_images_data = [];
-          $count = count($_FILES['other_images']['name']);
-    
-          for($i=0;$i<$count;$i++){
+          if(!empty($_FILES['category_image']['name'])){
+                $extension = pathinfo($_FILES['category_image']['name'], PATHINFO_EXTENSION);
+                $config['upload_path'] = $this->config->item('upload_path');
+                $config['allowed_types'] = 'jpg|jpeg|png';
+                $config['file_name'] = time().".".$extension;
+                $this->load->library('upload',$config);
+                $this->upload->initialize($config);
+
+                if($this->upload->do_upload('category_image')){
+                    $uploadData = $this->upload->data();
+                     $picture = $uploadData['file_name'];
+                     $objarray['category_image'] = $picture;
+                }else{
+                     $picture = 'upload problem';
+                    // $picture = '';
+                }
+                }else{
+                     $picture = 'Field blank';
+                    // $picture = '';
+                }
+
+              $other_images_data = [];
+              $count = count($_FILES['other_images']['name']);
         
-            if(!empty($_FILES['other_images']['name'][$i])){
-        
-              $_FILES['file']['name'] = $_FILES['other_images']['name'][$i];
-              $_FILES['file']['type'] = $_FILES['other_images']['type'][$i];
-              $_FILES['file']['tmp_name'] = $_FILES['other_images']['tmp_name'][$i];
-              $_FILES['file']['error'] = $_FILES['other_images']['error'][$i];
-              $_FILES['file']['size'] = $_FILES['other_images']['size'][$i];
-              $extension = pathinfo($_FILES['other_images']['name'][$i], PATHINFO_EXTENSION);
-              $config['upload_path'] =  $this->config->item('upload_path');
-              $config['allowed_types'] = 'jpg|jpeg|png|gif';
-              $config['max_size'] = '5000';
-              $config['file_name'] = time().$i.".".$extension;;
-       
-              $this->load->library('upload',$config); 
-        
-              if($this->upload->do_upload('file')){
-                $uploadData = $this->upload->data();
-                $filename = $uploadData['file_name'];
-       
-                $other_images_data['totalFiles'][] = $filename;
-              }
-              $objarray['other_images'] = implode(',', $other_images_data['totalFiles']);
-            }
+              for($i=0;$i<$count;$i++){
             
-          }
+                if(!empty($_FILES['other_images']['name'][$i])){
+            
+                  $_FILES['file']['name'] = $_FILES['other_images']['name'][$i];
+                  $_FILES['file']['type'] = $_FILES['other_images']['type'][$i];
+                  $_FILES['file']['tmp_name'] = $_FILES['other_images']['tmp_name'][$i];
+                  $_FILES['file']['error'] = $_FILES['other_images']['error'][$i];
+                  $_FILES['file']['size'] = $_FILES['other_images']['size'][$i];
+                  $extension = pathinfo($_FILES['other_images']['name'][$i], PATHINFO_EXTENSION);
+                  $config['upload_path'] =  $this->config->item('upload_path');
+                  $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                  $config['max_size'] = '5000';
+                  $config['file_name'] = time().$i.".".$extension;;
+           
+                  $this->load->library('upload',$config); 
+            
+                  if($this->upload->do_upload('file')){
+                    $uploadData = $this->upload->data();
+                    $filename = $uploadData['file_name'];
+           
+                    $other_images_data['totalFiles'][] = $filename;
+                  }
+                  $objarray['other_images'] = implode(',', $other_images_data['totalFiles']);
+                }
+              }
 
 
 
 
 
 
-           $objarray['product_tags'] =implode(',', $objarray['product_tags']);
+           // $objarray['product_tags'] =implode(',', $objarray['product_tags']);
            $obj = array($table_attribute=>$objarray,"check"=>"part_number");
        } else{
            $obj = array($table_attribute=>$objarray);
@@ -225,7 +245,7 @@ class General extends CI_Controller {
 
               unset($objarray['prev_product_img']);
               unset($objarray['prev_category_img']);
-              $objarray['product_tags'] =implode(',', $objarray['product_tags']);
+              // $objarray['product_tags'] =implode(',', $objarray['product_tags']);
                // print_r($objarray); die;
            $obj = array($table_attribute=>$objarray,"where"=>array($table_attribute.'_id'=>$table_id),"check"=>"part_number");
        } else{

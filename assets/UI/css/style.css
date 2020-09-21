@@ -215,6 +215,26 @@ a.navArrowRight {
     box-shadow: 0px 0px 17px #ccc;
     transition: all 0.5s;
 }
+.cartTable table th, .cartTable table td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    width: 15%;
+}
+.cartTable textarea.form-control {
+    width: 150px;
+    font-size: 12px;
+    resize: none;
+    box-shadow: none !important;
+    border: 1px solid #bfbfbf !important;
+}
+.cartTable td.cartImg img {
+    width: 100px;
+    height: 70px;
+    object-fit: contain;
+}
 .cartView.show {
     right: 0px;
     transition: all 0.5s;

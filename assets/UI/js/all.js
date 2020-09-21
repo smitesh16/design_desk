@@ -94,16 +94,10 @@ function register(){
           console.log(response);
           var res = JSON.parse(response);
           if(res.stat == 200){
-            if(active_status == 1){
-              // location.href = base_url+"Home";
-              swal("Congratulations, full access has been unlocked. The showroom will now reload")
+              swal("Thank you for registering with us, Micro Cotton team will verify your account and get in touch within 1-3 business days. We appreciate your patience.")
               .then((value) => {
                  parent.redirectToHome();
               });
-            }else{
-              showDiv('thankyouview');
-              return;
-            }
           }else{
              swal("Registration Failed. This email is already exist.");
              return;
