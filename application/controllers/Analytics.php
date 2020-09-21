@@ -34,7 +34,7 @@ class Analytics extends CI_Controller {
         $data['analytics_data'] =  json_decode($response,true);
         if($data['analytics_data']['stat'] == 200){
 	        $subject = "Analytics Report on ".date('Y-m-d');
-	       	$to = 'enquiry@cheersagar.com';
+	       	$to = 'geetha.raj@microcotton.com';
 	       	$viewName = "analyticsTemplate";
 	       	$mailData = $data['analytics_data']['all_list'];
 	       	$res = sendMail($subject,$to,$viewName,$mailData);
@@ -52,11 +52,11 @@ class Analytics extends CI_Controller {
         // pr($data);
         if($data['abandon_data']['stat'] == 200){
         	for($i = 0; $i<count($data['abandon_data']['data']); $i++){
-        		$subject = "Complete Enquiry: Cheer Sagar Virtual Showroom ";
+        		$subject = "Complete Enquiry – Microcotton® Virtual showroom";
 		       	$to = $data['abandon_data']['data'][$i]['user_email'];
 		       	$viewName = "abandonTemplate";
 		       	$mailData = $data['abandon_data']['data'][$i];
-		       	sendMail($subject,'enquiry@cheersagar.com',$viewName,$mailData);
+		       	sendMail($subject,'geetha.raj@microcotton.com',$viewName,$mailData);
 		       	$res = sendMail($subject,$to,$viewName,$mailData);
 				
         	}

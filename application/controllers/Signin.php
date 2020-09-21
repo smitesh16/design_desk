@@ -82,26 +82,26 @@ class Signin extends CI_Controller {
 	            $this->session->set_userdata("user_address",$res1['all_list'][0]['user_address']);
 	        }
 	    	if($obj['active_status'] != 1){
-		       	$subject = "Registration received: Cheer Sagar Virtual Showroom";
+		       	$subject = "Registration received – Microcotton virtual showroom ";
 		       	$to = $obj['user_email'];
 		       	$viewName = "registerTemplate";
 		       	$mailData = array("Name"=>$obj['user_name']);
 		       	// sendMail($subject,$to,$viewName,$mailData);
 
-		       	$subject = "New User request: Cheer Sagar Virtual Showroom";
-		       	$to = "enquiry@cheersagar.com";
+		       	$subject = "New user request - Microcotton virtual showroom";
+		       	$to = "geetha.raj@microcotton.com";
 		       	$viewName = "userInfoTemplate";
 		       	$mailData = $obj;
 		       	// sendMail($subject,$to,$viewName,$mailData);
 		    }else{
-		       	$subject = "Welcome to Cheer Sagar Virtual Showroom";
+		       	$subject = "Welcome to Microcotton Virtual Showroom";
 		       	$to = $obj['user_email'];
 		       	$viewName = "approveuserTemplate";
 		       	$mailData = array("Name"=>$obj['user_name']);
 		       	// sendMail($subject,$to,$viewName,$mailData);
 
-		       	$subject = "New User via access code: Cheer Sagar Virtual Showroom";
-		       	$to = "enquiry@cheersagar.com";
+		       	$subject = "New User via access code: Microcotton Virtual Showroom";
+		       	$to = "geetha.raj@microcotton.com";
 		       	$viewName = "accesscoderegistrationTemplate";
 		       	$mailData = $newObj;
 		       	// sendMail($subject,$to,$viewName,$mailData);
@@ -140,7 +140,7 @@ class Signin extends CI_Controller {
        	$to = $obj['user_email'];
        	$viewName = "resetpassTemplate";
        	$mailData = array("Name"=>$res['all_list'][0]['user_name'],"otp"=>$otp);
-       	// sendMail($subject,$to,$viewName,$mailData);
+       	sendMail($subject,$to,$viewName,$mailData);
        }
 	   echo $response;
 	}

@@ -123,7 +123,7 @@ class Customer extends CI_Controller {
 	     if($res['stat'] == 200)
 	     {
 			 if($obj['active_status'] == 1){
-			 	$subject = "Welcome to Cheer Sagar Virtual Showroom";
+			 	$subject = "Welcome to Microcotton virtual showroom";
 		       	$to = $obj['user_email'];
 		       	$viewName = "approveuserTemplate";
 		       	$mailData = array("Name"=>$obj['user_name']);
