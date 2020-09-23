@@ -13,24 +13,24 @@
 	<link rel="manifest" href="manifest.json">
 	<meta name="msapplication-TileColor" content="#FFFFFF">
 	<meta name="msapplication-config" content="browserconfig.xml">
-	<link rel="preload" href="script.js?v=1600685735292" as="script"/>
-	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/r/3/0_0.jpg?v=1600685735292" as="image"/>
-	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/l/3/0_0.jpg?v=1600685735292" as="image"/>
-	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/u/3/0_0.jpg?v=1600685735292" as="image"/>
-	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/d/3/0_0.jpg?v=1600685735292" as="image"/>
-	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/f/3/0_0.jpg?v=1600685735292" as="image"/>
-	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/b/3/0_0.jpg?v=1600685735292" as="image"/>
-	<link rel="preload" href="locale/en.txt?v=1600685735292" as="fetch" crossorigin="anonymous"/>
-	<script src="https://remote.3dvista.com/lib/tdvremote.js?v=1600685735292" type="text/javascript"></script>
+	<link rel="preload" href="script.js?v=1600774650018" as="script"/>
+	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/r/3/0_0.jpg?v=1600774650018" as="image"/>
+	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/l/3/0_0.jpg?v=1600774650018" as="image"/>
+	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/u/3/0_0.jpg?v=1600774650018" as="image"/>
+	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/d/3/0_0.jpg?v=1600774650018" as="image"/>
+	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/f/3/0_0.jpg?v=1600774650018" as="image"/>
+	<link rel="preload" href="media/panorama_98E26CA5_88C8_45C4_41D9_CECA8814DCE4_0/b/3/0_0.jpg?v=1600774650018" as="image"/>
+	<link rel="preload" href="locale/en.txt?v=1600774650018" as="fetch" crossorigin="anonymous"/>
+	<script src="https://remote.3dvista.com/lib/tdvremote.js?v=1600774650018" type="text/javascript"></script>
 	<meta name="description" content="Virtual Tour"/>
 	<meta name="theme-color" content="#FFFFFF"/>
-    <script src="lib/tdvplayer.js?v=1600685735292"></script>
-    <script src="script.js?v=1600685735292"></script>
+    <script src="lib/tdvplayer.js?v=1600774650018"></script>
+    <script src="script.js?v=1600774650018"></script>
     <script type="text/javascript">
         (function()
         {
             var deviceType = TDV.PlayerAPI.mobile ? 'mobile' : 'general';
-            var devicesUrl = {"general":"script_general.js?v=1600685735292","mobile":"script_mobile.js?v=1600685735292"};
+            var devicesUrl = {"general":"script_general.js?v=1600774650018","mobile":"script_mobile.js?v=1600774650018"};
             var url = deviceType in devicesUrl ? devicesUrl[deviceType] : devicesUrl['general'];
             if(typeof url == "object") {
                 var orient = TDV.PlayerAPI.getOrientation();
@@ -55,11 +55,11 @@
 
             var settings = new TDV.PlayerSettings();
             settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('viewer'));
-            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'lib/WebVRPolyfill.js?v=1600685735292');
-            settings.set(TDV.PlayerSettings.HLS_URL, 'lib/Hls.js?v=1600685735292');
-            settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1600685735292');
+            settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'lib/WebVRPolyfill.js?v=1600774650018');
+            settings.set(TDV.PlayerSettings.HLS_URL, 'lib/Hls.js?v=1600774650018');
+            settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1600774650018');
 
-            var devicesUrl = {"general":"script_general.js?v=1600685735292","mobile":"script_mobile.js?v=1600685735292"};
+            var devicesUrl = {"general":"script_general.js?v=1600774650018","mobile":"script_mobile.js?v=1600774650018"};
 
             tour = new TDV.Tour(settings, devicesUrl);
             tour.bind(TDV.Tour.EVENT_TOUR_INITIALIZED, onVirtualTourInit);

@@ -38,8 +38,6 @@
                                       <th>Enquiry Id</th>
                                       <th>Enquiry By</th>
                                       <th>Enquiry For</th>
-                                      <th>MOQ</th>
-                                      <th>Territory</th>
                                       <th>Enquiry Date</th>
                                   </tr>
                               </thead>
@@ -62,8 +60,6 @@
                                                       ?>
                                                       
                                                   </td>
-                                                  <td><?= $list['moq']; ?></td>
-                                                  <td><?= $list['territory']; ?></td>
                                                   <td><?php echo date("d-m-Y", strtotime($list['enquiry_date']));?></td>
 
                                               </tr>
@@ -88,90 +84,46 @@
                 </button>
             </div>
             <form method="post" action="<?php echo base_url(); ?>General/EditData" enctype="multipart/form-data">
-                 <div class="modal-body">
+                <div class="modal-body">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="message-text" class="col-form-label">Style Number:</label>
+                                <label for="recipient-name" class="col-form-label">Product Name:</label>
+                                <input type="text" class="form-control" name="product_name" id="product_name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Product Code:</label>
                                 <input type="text" maxlength="100" class="lengthValidation form-control" name="part_number" id="part_number" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Category:</label>
-                                <input type="text" class="form-control" name="category" id="category" required>
+                                <select class="form-control categorySelect" id="category" name="category" required>
+                                    <option value="">Select Category</option>
+                                    <?php
+                                        for($i = 0; $i<count($category['all_list']); $i++){
+                                    ?>
+                                        <option value="<?=$category['all_list'][$i]['category']?>" data-val="<?=$category['all_list'][$i]['category_id']?>"><?=$category['all_list'][$i]['category']?></option>
+                                    <?php } ?>
+                                </select>
+                                <input type="hidden" class="form-control category_id" id="category_id" name="category_id" required>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Main Pattern:</label>
-                                <input type="text" class="form-control" name="product_name" id="product_name" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Fabric:</label>
-                                <input type="text" class="form-control" name="fabric" id="fabric" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Garment Wash:</label>
-                                <input type="text" class="form-control" name="garment_wash" id="garment_wash" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Season:</label>
-                                <input type="text" class="form-control" name="season" id="season" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Purpose Of Garment:</label>
-                                <input type="text" class="form-control" name="purpose_garment" id="purpose_garment" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Tags:</label>
-                                <select class="form-control select2" multiple name="product_tags[]" id="product_tags">
-                                <option value="None">None</option>
-                                <option value="Solid">Solid</option>
-                                <option value="Embroidery">Embroidery</option>
-                                <option value="Print">Print</option>
-                                <option value="Wash">Wash</option>
-                              </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Description:</label>
-                                <textarea maxlength="300" class="form-control" name="description" id="description" required></textarea>
+                                <textarea maxlength="300" class="form-control ckeditor" name="description" id="description" required></textarea>
                             </div>
                         </div>
-                         <div class="col-md-4">
+                        
+                        <div class="col-md-8">
                             <div class="form-group">
-                                <label for="message-text" class="col-form-label">Station Number:</label>
-                                <select class="form-control" name="displayNumber" id="displayNumber">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                              </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Parmalink:</label>
-                                <input type="text" maxlength="10" class="form-control" name="parmalink" id="parmalink" required>
+                                <label for="message-text" class="col-form-label">Short Description:</label>
+                                <input type="text" maxlength="100" class="form-control" name="parmalink" id="parmalink" required>
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -182,6 +134,14 @@
                             </div>
                             <input type="hidden" id="product_image" name="prev_product_img">
                         </div>
+                        <div class="col-md-2">
+                            <div class="form-group" id="category_image_div">
+                                <label for="message-text" class="col-form-label">Category Image:</label>
+                                <input type="file" maxlength="10" class="noNegetive twoDecimalNumber form-control"
+                                    name="category_image">
+                            </div>
+                            <input type="hidden" id="category_image" name="prev_category_img">
+                        </div>                        
                         <div class="col-md-12">
                             <div class="form-group" id="other_image_div">
                                 <label for="message-text" class="col-form-label">Other Images:</label>

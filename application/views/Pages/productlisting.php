@@ -1,4 +1,9 @@
 <?= View("template/uiheader"); ?>
+<style type="text/css">
+  header{
+    display: none;
+   }
+</style>
    <body class="remove_loader">
 
     <header>

@@ -2,9 +2,9 @@
    $p = $product['all_list'][0];
  ?>
  <style type="text/css">
-   /*header{
+   header{
     display: none;
-   }*/
+   }
    .BotPenguin-chat{
     display: none !important;
    }

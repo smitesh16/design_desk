@@ -416,7 +416,7 @@ class General_model extends CI_Model {
                 $detailsArr = array();
                    foreach ($sq_res as $value2) {
                     if($value['enquiry_id'] == $value2['enquiry_id']){
-                        $detailsArr[] = array("product_id"=>$value2['product_id'],"product_name"=>$value2['product_name'],"part_number"=>$value2['part_number'],"description"=>$value2['description'],"product_tags"=>$value2['product_tags'],"product_image"=>$value2['product_image'],"product_quantity"=>$value2['product_quantity'],"comment"=>$value2['comment']);
+                        $detailsArr[] = array("product_id"=>$value2['product_id'],"product_name"=>$value2['product_name'],"part_number"=>$value2['part_number'],"description"=>$value2['description'],"product_image"=>$value2['product_image'],"product_quantity"=>$value2['product_quantity'],"comment"=>$value2['comment']);
                     }
                 // $enquiry_idArr
                 }
