@@ -152,26 +152,42 @@ function randomString($length = 8)
 function sendMail($subject,$to,$viewName,$mailData=array())
 {    
     $obj =& get_instance();
-    $headers = 'MIME-Version: 1.0' . "\r\n";
-    $headers.= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-    $headers.= 'From: geetha.raj@microcotton.com';
+    $from = 'From: smitesh@ajency.in';
     // $headers .= 'Cc: geetha.raj@microcotton.com' . "\r\n";
     
     $data['data'] = $mailData;    
     $message= $obj->load->view('mailTemplate/'.$viewName,$data,true);
+    // $postfield="body=".$message."&to=".$to."&subject=".$subject."&headers=".$headers;
+    // // var_dump($postfield);
+    // $ch = curl_init();
+    // curl_setopt($ch, CURLOPT_URL, $api_url);
+    // curl_setopt($ch, CURLOPT_USERPWD, 'api:key-5504ab030e8394fe8fb7533d5c0cd601');
+    // curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    // curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    // curl_setopt($ch, CURLOPT_POST,TRUE);
+    // curl_setopt($ch, CURLOPT_POSTFIELDS,$postfield);
+    // $mailResponse = curl_exec($ch);
+    // // var_dump($mailResponse);
+    // curl_close($ch);
+    // $mailResponse = json_decode($mailResponse,true);
 
-    $api_url = "http://mail.infimonk.com/mailtest.php";
-    $postfield="body=".$message."&to=".$to."&subject=".$subject."&headers=".$headers;
+    // return $mailResponse;
+    //   $api_url = "https://api.mailgun.net/v3/sandboxa3bff168098a4090b636df0f4b181168.mailgun.org/messages";
+    
+    
+    $postfield="text=".$message."&to=".$to."&subject=".$subject."&from=".$from;
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $api_url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_POST,TRUE);
+    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    curl_setopt($ch, CURLOPT_USERPWD, 'api:key-5504ab030e8394fe8fb7533d5c0cd601');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_URL,
+        'https://api.mailgun.net/v3/sandboxa3bff168098a4090b636df0f4b181168.mailgun.org/messages');
     curl_setopt($ch, CURLOPT_POSTFIELDS,$postfield);
     $mailResponse = curl_exec($ch);
     curl_close($ch);
     $mailResponse = json_decode($mailResponse,true);
-    return $mailResponse;
 }
 
 

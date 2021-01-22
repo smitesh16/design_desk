@@ -55,19 +55,88 @@ class Signin extends CI_Controller {
        echo $response;
 	}
 
+	public function Token($client_id)
+	{
+		$objarray = array();
+		$api_url = $this->config->item('api_url');
+       	$api_url = $api_url."General/create_token";
+		$set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$code = substr(str_shuffle($set), 0, 20);
+		$verified=0;
+		// $expdate = date('Y-m-d h:i:s');
+		$expdate = date('Y-m-d H:i:s', strtotime('now +1 hour'));
+		$objarray['client_id'] = $client_id;
+		$objarray['code'] = $code;
+		$objarray['verified'] = $verified;
+		$objarray['expired'] = $expdate;
+		$response = $this->General_model->general_function($objarray,$api_url);
+		return $code;	
+}
+
+	public function Verifyemail()
+		{
+			$objarray = array();
+			$api_url = $this->config->item('api_url');
+			$api_url = $api_url."General/Email_verify";
+			$Code = $_GET['code'];
+			$Expdate = date('Y-m-d H:i:s', strtotime('now +1 hour'));
+			$objarray['code'] = $Code;
+			$objarray['expiry'] = $Expdate;
+			$response = $this->General_model->general_function($objarray,$api_url);
+			// var_dump($response);
+			$res = json_decode($response,true);
+			// var_dump($res);
+			if($res['stat'] == 200)
+			{
+				$data['verified'] = $res;
+				$data['expiry'] = $res;
+				$data['email'] = $res;
+				$data['clientid'] = $res;
+				$data['name'] = $res;
+				$this->load->view('Pages/verify',$data);
+			}
+			else if($res['stat'] == 300)
+			{
+				$data['verified'] = $res;
+				$data['expiry'] = $res;
+				$data['email'] = $res;
+				$data['clientid'] = $res;
+				$data['name'] = $res;
+				$this->load->view('Pages/verify',$data);
+			}	
+			else if($res['stat'] == 400)
+			{
+				$data['verified'] = $res;
+				$data['expiry'] = $res;
+				$data['email'] = $res;
+				$data['clientid'] = $res;
+				$data['name'] = $res;
+				$this->load->view('Pages/verify',$data);
+			}	
+			else
+			{
+				$data = "Something went wrong!!";
+				$this->load->view('Pages/verify',$data);	
+			}
+			
+		}
+
 	public function Register()
 	{
 	   $api_url = $this->config->item('api_url');
        $api_url = $api_url."General/Add";
        $ip = $this->getVisIPAddr();
 		$iparr = explode(',', $ip);
-       $obj = $this->input->post();
-       $newObj = $obj;
+	   $obj = $this->input->post();
+	   $newObj = $obj;
        unset($obj['accesscode']);
        $obj['password'] = base64_encode($obj['password']);
        $obj['client_ip_address'] = $iparr[0];
        $objarray = array("client"=>$obj);
-       $response = $this->General_model->general_function($objarray,$api_url);
+	   $response = $this->General_model->general_function($objarray,$api_url);
+	   $res = json_decode($response,true);
+	   $code = $this->Token($res['insert_id']);
+	   
        $res = json_decode($response,true);
        if($res['stat'] == 200) {
        	   $api_url = $this->config->item('api_url');
@@ -75,7 +144,7 @@ class Signin extends CI_Controller {
        	   $obj1 = $obj;
        	   $obj1['active_status'] = 1;
        	   $objarray = array("client"=>$obj1);
-	       $response1 = $this->General_model->general_function($objarray,$api_url);
+		   $response1 = $this->General_model->general_function($objarray,$api_url);
 	       $res1 = json_decode($response1,true);
 	       if($res1['stat'] == 200) {
 	            $this->session->set_userdata("user_id",$res1['all_list'][0]['client_id']);
@@ -84,35 +153,109 @@ class Signin extends CI_Controller {
 	            $this->session->set_userdata("company",$res1['all_list'][0]['company']);
 	            $this->session->set_userdata("user_address",$res1['all_list'][0]['user_address']);
 	        }
-	    	if($obj['active_status'] != 1){
-		       	$subject = "Registration received – Microcotton virtual showroom ";
-		       	$to = $obj['user_email'];
-		       	$viewName = "registerTemplate";
-		       	$mailData = array("Name"=>$obj['user_name']);
+
+			// for user registeration
+
+		// 	if($obj['active_status'] != 1){
+		//        	$subject = "Registration received – virtual showroom ";
+		//        	$to = $obj['user_email'];
+		//        	$viewName = "registerTemplate";
+		//        	$mailData = array("Name"=>$obj['user_name']);
+		//        	sendMail($subject,$to,$viewName,$mailData);
+
+		//        	$subject = "New user request - virtual showroom";
+		//        	$to = "geetha.raj@microcotton.com";
+		//        	$viewName = "userInfoTemplate";
+		//        	$mailData = $obj;
+		//        	sendMail($subject,$to,$viewName,$mailData);
+		//     }else{
+		//        	$subject = "Welcome to  Virtual Showroom";
+		//        	$to = $obj['user_email'];
+		//        	$viewName = "approveuserTemplate";
+		//        	$mailData = array("Name"=>$obj['user_name']);
+		//        	sendMail($subject,$to,$viewName,$mailData);
+
+		//        	$subject = "New User via access code: Virtual Showroom";
+		//        	$to = "geetha.raj@microcotton.com";
+		//        	$viewName = "accesscoderegistrationTemplate";
+		//        	$mailData = $newObj;
+		//        	sendMail($subject,$to,$viewName,$mailData);
+		//    }	
+	
+	
+				if($obj['active_status'] != 1)
+				{
+					$obj['code'] = $code;
+					$subject = "Registration sucessfull, please verify ";
+					   $to = $obj['user_email'];
+			       	$viewName = "emailverificationTemplate";
+					   $mailData = array("Name"=>$obj['user_name'],"Code"=>$code);
+			       	sendMail($subject,$to,$viewName,$mailData);
+	
+			       	// $subject = "New user request - virtual showroom";
+			       	// $to = "smitesh@ajency.in";
+			       	// $viewName = "userInfoTemplate";
+			       	// $mailData = $obj;
+			       	// sendMail($subject,$to,$viewName,$mailData);
+				} 
+		       	// $subject = "Welcome to  Virtual Showroom";
+		       	// $to = $obj['user_email'];
+		       	// $viewName = "approveuserTemplate";
+		       	// $mailData = array("Name"=>$obj['user_name']);
 		       	// sendMail($subject,$to,$viewName,$mailData);
 
-		       	$subject = "New user request - Microcotton virtual showroom";
-		       	$to = "geetha.raj@microcotton.com";
-		       	$viewName = "userInfoTemplate";
-		       	$mailData = $obj;
-		       	// sendMail($subject,$to,$viewName,$mailData);
-		    }else{
-		       	$subject = "Welcome to Microcotton Virtual Showroom";
-		       	$to = $obj['user_email'];
-		       	$viewName = "approveuserTemplate";
-		       	$mailData = array("Name"=>$obj['user_name']);
+		       	// $subject = "New User via access code: Virtual Showroom";
+		       	// $to = "smitesh@ajency.in";
+		       	// $viewName = "accesscoderegistrationTemplate";
+		       	// $mailData = $newObj;
 		       	// sendMail($subject,$to,$viewName,$mailData);
 
-		       	$subject = "New User via access code: Microcotton Virtual Showroom";
-		       	$to = "geetha.raj@microcotton.com";
-		       	$viewName = "accesscoderegistrationTemplate";
-		       	$mailData = $newObj;
-		       	// sendMail($subject,$to,$viewName,$mailData);
-	       }
        }
        
        echo $response;
 	}
+
+	public function ResendEmailVerication()
+	{
+					// var_dump($_GET);
+					$obj = $this->input->get();
+					$email = $_GET['email'];
+					$userid = $_GET['userid'];
+					$username = $_GET['name'];
+					$objarray = array();
+					$api_url = $this->config->item('api_url');
+					$api_url = $api_url."General/create_reverification";
+					$set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+					$code = substr(str_shuffle($set), 0, 20);
+					$verified=0;
+					// // $expdate = date('Y-m-d h:i:s');
+					$expdate = date('Y-m-d H:i:s', strtotime('now +1 hour'));
+					$objarray['code'] = $code;
+					$objarray['verified'] = $verified;
+					$objarray['expired'] = $expdate;
+					$objarray['email'] = $email;
+					$objarray['userid'] = $userid;
+
+					$response = $this->General_model->general_function($objarray,$api_url);
+					// var_dump($response);
+					$res = json_decode($response,true);
+
+					if($res['stat'] == 200) {
+					//send mail code
+					$subject = "Verification Link ";
+					   $to = $email;
+			       	$viewName = "emailverificationTemplate";
+					   $mailData = array("Name"=>$obj['name'],"Code"=>$code);
+					//    var_dump($to,$mailData);
+					
+					   // sendMail($subject,$to,$viewName,$mailData);
+					}
+					else
+					{
+						echo "Something went Wrong!!";
+					}
+	}
+
 
 	public function CheckAccesscode()
 	{

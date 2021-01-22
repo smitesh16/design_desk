@@ -23,11 +23,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://'.$_SERVER['SERVER_NAME'].'/micro_cotton/';
-$config['api_url'] = 'https://'.$_SERVER['SERVER_NAME'].'/micro_cotton/assets/vlshop_api/';
-$config['file_url'] = 'https://'.$_SERVER['SERVER_NAME'].'/micro_cotton/assets/vlshop_file/';
+$config['base_url'] = 'https://795f305e4ac1.ngrok.io/micro_cotton/';
+$config['api_url'] = 'https://795f305e4ac1.ngrok.io/micro_cotton/assets/vlshop_api/';
+$config['file_url'] = 'https://795f305e4ac1.ngrok.io/micro_cotton/assets/vlshop_file/';
 $config['upload_path'] = './assets/vlshop_file/';
 $config['api_key'] = 'c2FudGFudV9wYXVsX2luZmltb25r';
+$config['page_title'] = 'Virtual';
+$config['company_name'] = 'company';
+$config['emailvalidationurl'] = 'https://795f305e4ac1.ngrok.io/micro_cotton/Signin/Verifyemail';
 
 /*
 |--------------------------------------------------------------------------

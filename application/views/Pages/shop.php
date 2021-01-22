@@ -9,9 +9,8 @@
                   <img width="200px" src="<?= base_url(); ?>assets/UI/images/logo.png">
                 </a>
               <h1>Welcome To<br>
-Home Fashions Virtual Market Week
-September - 2020  </h1>
-              <p>Micro Cotton presents the new Fall' 2020 Bath Collection </p>
+			Virtual Market Week january - 2021  </h1>
+              <p><?= Config('company_name');?> presenting the ultimate new ' 2021 Summer Collection '</p>
               <div class="authAction mb-4">
                 <a class="login" href="javascript:void(0);" onclick="openModal('home-tab');">Login</a>
                 <a class="register" href="javascript:void(0);" onclick="openModal('profile-tab');">Register</a>
@@ -280,6 +279,18 @@ September - 2020  </h1>
 				          </div>
 				          <div class="form-group">
 				            <input type="text" id="company" class="form-control" placeholder="Company Name">
+						  </div>
+						  <div class="form-group">
+				            <input type="text" id="state" class="form-control" placeholder="State Name">
+							<span class="err-msg" id="stateallError" style="color: red"></span> 
+						  </div>
+						  <div class="form-group">
+				            <input type="text" id="country" class="form-control" placeholder="Country Name">
+							<span class="err-msg" id="countryallError" style="color: red"></span> 
+						  </div>
+						  <div class="form-group">
+				            <input type="text" id="pincode" class="form-control" placeholder="Enter Pincode">
+							<span class="err-msg" id="pincodeallError" style="color: red"></span> 
 				          </div>
 				          <div class="form-group">
 				            <input type="text" id="user_address" class="form-control" placeholder="Full Address">

@@ -5,7 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
       <link rel="icon" type="image/png" href="<?= base_url(); ?>assets/UI/images/fav.png">
-      <title>:: Micro Cotton ::</title>
+      <title>:: <?= Config('page_title');?> ::</title>
       <link type="text/css" rel="stylesheet" href="<?= base_url(); ?>assets/UI/css/bootstrap.min.css">
       <link type="text/css" rel="stylesheet" href="<?= base_url(); ?>assets/UI/css/style.css">
       <link type="text/css" rel="stylesheet" href="<?= base_url(); ?>assets/UI/css/responsive.css">

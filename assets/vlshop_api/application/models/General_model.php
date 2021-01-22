@@ -2,11 +2,101 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class General_model extends CI_Model {
 
+    public function create_token_data($all_data)
+    {
+        $List = "'" . implode( "','",($all_data) ) . "'";
+        $query="insert into client_verification values('',$List)";
+         $this->db->query($query);
+         
+        //  return array("stat"=>200,"msg"=>"Added successfully.","data"=>$list);
+    }
+
+    public function create_reverification_data($all_data)
+    {
+        // var_dump($all_data);
+        $Clientid =  $all_data['userid'];
+        $Expiry =  $all_data['expired'];
+        $Verified =  $all_data['verified'];
+        $Code =  $all_data['code'];
+
+        $query="insert into client_verification values('','$Clientid','$Code','$Verified','$Expiry')";
+        
+        $this->db->query($query);
+         
+         return array("stat"=>200,"msg"=>"Added successfully.","data"=>$query);
+    }
+
+    public function email_verify_data($all_data)
+    {
+        // var_dump($all_data);
+
+         $Code = $all_data['code'];
+         $expquery = $this->db->query("SELECT cv.*,cm.* 
+         FROM `client_verification` cv
+         inner join client_master cm on cm.client_id=cv.client_id
+         where cm.del_status=0 and code = '$Code'");
+
+         foreach ($expquery->result() as $row)
+         { 
+                 $expdate =  $row->expiry;
+                 $email =  $row->user_email;
+                 $userid =  $row->client_id;
+                 $username =  $row->user_name;
+         }
+         $Expiry = $expdate;
+         $Currentdate = date('Y-m-d h:i:s');
+         $expconverted = strtotime($Expiry);  //expiry conversion
+         $curconverted = strtotime($Currentdate);   //current conversion
+         $avgtime = abs($curconverted - $expconverted)/(60*60);
+            //  var_dump($Code,$Expiry);
+        //  $List1 = implode($Code) ;
+        //  var_dump($List1);
+            if($avgtime <= 1)
+                { 
+                    $query = $this->db->query("SELECT * FROM client_verification WHERE code = '$Code' and verified=1");
+                    // echo $query->num_rows();
+                    
+                    if($query->num_rows()==0)
+                        {
+                        //   $Code = $all_data;
+                            //   $List1 = implode($Code) ;
+                            $Code = $all_data['code'];
+                            $Expiry = $all_data['expiry'];
+                            $verified = 1;
+                            $active_status = 1;
+                            
+                            $query1 = "UPDATE client_verification 
+                            set verified = $verified
+                            WHERE code = '$Code' ";
+                            //   var_dump($query1);
+                
+                            $query2 = "UPDATE client_master cm
+                                        INNER JOIN client_verification cv
+                                        ON cm.client_id= cv.client_id
+                                        SET cm.active_status = $active_status
+                                        WHERE cv.code='$Code' ";
+                        // var_dump($query2);
+                            $this->db->query($query1);
+                            $this->db->query($query2);
+                                return array("stat"=>200,"msg"=>"Verified successfully. Please Login", "expiry"=>$Expiry, "email"=>$email, "clientid"=>$userid, "name"=>$username);
+                            } 
+                        else
+                            {
+                                return array("stat"=>300,"msg"=>"Already Verified. Please Login", "expiry"=>$Expiry, "email"=>$email, "clientid"=>$userid, "name"=>$username);
+                            } 
+                }
+                else
+                { 
+                    return array("stat"=>400,"msg"=>"Link Expired!!", "expiry"=>$Expiry, "email"=>$email, "clientid"=>$userid, "name"=>$username);
+                }
+                
+    }
+
     public function add_data($all_data)
     {
         $table_prefix = $this->config->item('table_prefix');
         $table_suffix = $this->config->item('table_suffix');
-        
+
         $key_array = array_keys($all_data);
         $table_attribute = $key_array[0];
         $sub_array = array();
@@ -50,13 +140,14 @@ class General_model extends CI_Model {
             {
                 $sub_array[$i][$table_attribute.'_id'] = $insert_id;
             }
-            
+           
+           
             $this->db->insert_batch($table_prefix.$sub_table_attribute.$table_suffix,$sub_array);
         }
-        
+       
         return array("stat"=>200,"msg"=>"Added successfully","insert_id"=>$insert_id);
 	}
-    
+
     
     public function update_data($all_data)
     {
@@ -124,8 +215,7 @@ class General_model extends CI_Model {
         }
         return array("stat"=>200,"msg"=>"Updated Successfully");
 	}
-    
-    
+      
     
 	public function get_data($all_data)
 	{
@@ -489,4 +579,7 @@ class General_model extends CI_Model {
          }
     }
 }
+
 ?>
+
+

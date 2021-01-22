@@ -239,6 +239,18 @@
             <input type="text" id="company" class="form-control" placeholder="Company Name">
           </div>
           <div class="form-group">
+				            <input type="text" id="state" class="form-control" placeholder="State Name">
+                    <span class="err-msg" id="stateallError" style="color: red"></span> 
+					</div>
+					<div class="form-group">
+				            <input type="text" id="country" class="form-control" placeholder="Country Name">
+                    <span class="err-msg" id="countryallError" style="color: red"></span> 
+					</div>
+					<div class="form-group">
+				            <input type="text" id="pincode" class="form-control" placeholder="Enter Pincode">
+                    <span class="err-msg" id="pincodeallError" style="color: red"></span> 
+				  </div>
+          <div class="form-group">
             <select class="form-control" id="user_address" style="border: 1px solid #000000 !important;box-sizing: border-box;border-radius: 10px;box-shadow: none !important;">
               <option value="">Territory of Operations</option>
               <option value="Japan">Japan</option>

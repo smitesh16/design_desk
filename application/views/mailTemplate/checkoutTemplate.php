@@ -12,7 +12,7 @@
             <?php
                 if($data['user_name'] == ""){
             ?>
-            <p>Thank you so much for your time and interest in our collection. We have received your selection from Microcotton® virtual showroom.
+            <p>Thank you so much for your time and interest in our collection. We have received your selection from <?= Config('company_name');?>® virtual showroom.
 Our team will work on your enquiry and get back to you
 In case of any other questions you can email us on geetha.raj@microcotton.com or call us on +91-7667244400. </p>
             <?php }else{ ?>
@@ -66,7 +66,7 @@ In case of any other questions you can email us on geetha.raj@microcotton.com or
             </table>
             <br>
             <p style="margin: 0px;">Best regards,  </p>
-            <p style="margin: 0px;"><b>Team Microcotton</b></p>
+            <p style="margin: 0px;"><b>Team <?= Config('company_name');?></b></p>
 
             
         </div>

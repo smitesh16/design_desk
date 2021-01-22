@@ -54,6 +54,9 @@ function register(){
   var user_email = $("#user_email").val();
   var contact_number = $("#contact_number").val();
   var company = $("#company").val();
+  var state = $("#state").val();
+  var country = $("#country").val();
+  var pincode = $("#pincode").val();
   var user_address = $("#user_address").val();
   var password = $("#password").val();
   var conf_password = $("#conf_password").val();
@@ -80,6 +83,21 @@ function register(){
       $("#password").focus();
       return;
     }
+    if(country.trim() == ""){
+      $("#countryallError").html("Country cannot be blank");
+      $("#country").focus();
+      return;
+    }
+    if(state.trim() == ""){
+      $("#stateallError").html("State cannot be blank");
+      $("#state").focus();
+      return;
+    }
+    if(pincode.trim() == ""){
+      $("#pincodeallError").html("Pincode cannot be blank");
+      $("#pincode").focus();
+      return;
+    }
 
   if(password != conf_password){
     $("#allError").html("Both password not matched");
@@ -89,12 +107,12 @@ function register(){
   $.ajax({
         type: "POST",
         url: base_url + "Signin/Register",
-        data: {user_name:user_name,user_email:user_email,contact_number:contact_number,company:company,user_address:user_address,password:password,active_status:active_status,accesscode:accesscode},
+        data: {user_name:user_name,user_email:user_email,contact_number:contact_number,company:company,state:state,country:country,pincode:pincode,user_address:user_address,password:password,active_status:active_status,accesscode:accesscode},
         success: function(response) {
           console.log(response);
           var res = JSON.parse(response);
           if(res.stat == 200){
-              swal("Thank you for registering with us, Micro Cotton team will verify your account and get in touch within 1-3 business days. We appreciate your patience.")
+              swal("Thank you for registering with us. Verify your account for login.")
               .then((value) => {
                  parent.redirectToHome();
               });

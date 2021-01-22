@@ -3,7 +3,7 @@
 ## Tour
 
 ### Title
-tour.name = Micro Cotton Showroom
+tour.name = <?= Config('page_title');?> Showroom
 
 ## Media
 

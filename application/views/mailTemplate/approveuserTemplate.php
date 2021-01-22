@@ -15,7 +15,7 @@
             </p>
             <br>
             <p style="margin: 0px;">Best regards,  </p>
-            <p style="margin: 0px;"><b>Team Microcotton</b></p>
+            <p style="margin: 0px;"><b>Team <?= Config('company_name');?></b></p>
 
         </div>
 

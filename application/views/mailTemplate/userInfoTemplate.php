@@ -7,7 +7,7 @@
 
         <div>
            <h3>
-                Dear team Microcotton,
+                Dear team <?= Config('company_name');?>,
             </h3>
             
             <p>
@@ -37,7 +37,7 @@
             <p><a href="<?php echo base_url(); ?>Customer" target="_blank">Click here</a> to go to admin pannel</p>
             <br>
             <p style="margin: 0px;">Best regards,  </p>
-            <p style="margin: 0px;"><b>Team Microcotton</b></p>
+            <p style="margin: 0px;"><b>Team <?= Config('company_name');?></b></p>
 
         </div>
 

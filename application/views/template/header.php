@@ -10,7 +10,7 @@
 	<meta name=description content=admin />
 	<meta name=robots content=noodp />
 	<meta name=keywords content=admin>
-	<title>Micro Cotton Admin</title>
+	<title><?= Config('page_title');?> Admin</title>
 	<style>
 		.mainLoader {
 			position: fixed;
